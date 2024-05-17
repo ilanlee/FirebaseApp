@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { initializeApp, getApps } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -11,16 +11,15 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APPID,
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+// Initialize Firebase only if no app exists
+let app;
+if (getApps().length === 0) {
+  app = initializeApp(firebaseConfig);
+  console.log("Firebase app initialized:", app); 
+} else {
+  app = getApps()[0]; // Get the existing app
+  console.log("Firebase app already initialized:", app);
+}
 
-export {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  doc,
-  setDoc,
-  auth, // You might need to export 'auth' for accessing other Firebase auth functions
-  // ... other Firebase functions you need
-};
+export const auth = getAuth(app);
+export const db = getFirestore(app);

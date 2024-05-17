@@ -1,5 +1,5 @@
 <script>
-    import { signOut } from "$lib/firebase.js";
+    import { signOut } from "@firebase/auth";
   
     async function handleLogout() {
       try {

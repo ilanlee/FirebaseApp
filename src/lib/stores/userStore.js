@@ -7,6 +7,8 @@ export const user = writable(null);
 // Check if running in the browser
 if (typeof window !== 'undefined') {
   onAuthStateChanged(auth, (user) => {
-    user.set(user);
+    if (user) {
+      user.set(user);
+    }
   });
 }

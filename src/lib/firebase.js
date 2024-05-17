@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
-import { writable } from "svelte/store";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_APIKEY,
@@ -16,17 +15,12 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-export const user = writable(null);
-
-onAuthStateChanged(auth, (user) => {
-  user.set(user);
-});
-
 export {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   doc,
   setDoc,
+  auth, // You might need to export 'auth' for accessing other Firebase auth functions
   // ... other Firebase functions you need
 };

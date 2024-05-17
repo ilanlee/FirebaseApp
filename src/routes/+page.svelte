@@ -1,8 +1,8 @@
 <script>
+  import { user } from "$lib/stores/userStore.js";
   import LoginForm from "$lib/components/LoginForm.svelte";
   import SignupForm from "$lib/components/SignupForm.svelte";
-  import LogoutButton from "$lib/components/LogoutButton.svelte";
-  import { user } from "$lib/firebase.js";
+  import LogoutButton from "$lib/components/LogoutButton.svelte"; 
 </script>
 
 {#if $user}

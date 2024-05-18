@@ -3,6 +3,7 @@
   import LoginForm from "$lib/components/LoginForm.svelte";
   import SignupForm from "$lib/components/SignupForm.svelte";
   import LogoutButton from "$lib/components/LogoutButton.svelte"; 
+    import ImageUpload from "../lib/components/ImageUpload.svelte";
 
   let email = '';
   let password = '';
@@ -11,6 +12,7 @@
 
 {#if $user}
   <p>Welcome, {$user.email}!</p>
+  <ImageUpload />
   <LogoutButton />
 {:else}
   <h2 class="underline">Login</h2>

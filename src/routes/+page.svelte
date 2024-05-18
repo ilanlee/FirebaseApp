@@ -14,9 +14,9 @@
   <p>Welcome, {$user.email}!</p>
   <LogoutButton />
 {:else}
-  <h2>Login</h2>
+  <h2 class="underline">Login</h2>
   <LoginForm /> 
 
-  <h2>Signup</h2>
+  <h2 class="underline">Signup</h2>
   <SignupForm />
 {/if}

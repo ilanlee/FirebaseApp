@@ -28,7 +28,7 @@
     <label for="password">Password:</label>
     <input type="password" id="login-password" bind:value={password} required autocomplete="current-password"/>
   </div>
-  <button type="submit">Login</button>
+  <button type="submit" class="italic">Login</button>
 
   {#if error}
     <p class="error">{error}</p>

@@ -6,6 +6,7 @@
       try {
         await signOut(auth);
         console.log("User signed out");
+        console.log("auth after signout:", auth)
       } catch (error) {
         console.error("Error during sign out:", error);
         alert(error.message);

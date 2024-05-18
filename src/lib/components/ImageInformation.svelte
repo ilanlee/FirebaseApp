@@ -4,22 +4,28 @@
     let imageDescription = '';
   </script>
   
-  <div class="flex items-center">
-    <div class="image">
-      <img src={imageURL} alt={imageName} />
+<form>
+    <div class="flex items-center">
+      <div class="image">
+        <img src={imageURL} alt={imageName} />
+      </div>
+  
+      <div class="form-fields ml-4">
+        <div>
+          <label for="imageName">Image Name:</label>
+          <input type="text" id="imageName" placeholder={imageName} bind:value={imageName} />
+        </div>
+        <div>
+          <label for="imageURL">Image URL:</label>
+          <input type="text" id="imageURL" bind:value={imageURL} disabled readonly />
+        </div>
+        <div>
+          <label for="imageDescription">Image Description:</label>
+          <textarea id="imageDescription" placeholder="Image description" bind:value={imageDescription} />
+        </div>
+      </div>
     </div>
-  
-    <div class="form-fields ml-4">
-      <label for="imageName">Image Name:</label>
-      <input type="text" id="imageName" placeholder={imageName} bind:value={imageName} />
-  
-      <label for="imageURL">Image URL:</label>
-      <input type="text" id="imageURL" bind:value={imageURL} disabled readonly />
-  
-      <label for="imageDescription">Image Description:</label>
-      <textarea id="imageDescription" placeholder="Image description" bind:value={imageDescription} />
-    </div>
-  </div>
+</form>
   
   <style>
     .image {

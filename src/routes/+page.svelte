@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import { user } from "$lib/stores/userStore.js";
   import LoginForm from "$lib/components/LoginForm.svelte";
   import SignupForm from "$lib/components/SignupForm.svelte";

@@ -2,7 +2,7 @@
     export let imageName = '';
     export let imageURL = '';
     let imageDescription = '';
-  </script>
+</script>
   
 <form>
     <div class="flex items-center">
@@ -13,7 +13,7 @@
       <div class="form-fields ml-4">
         <div>
           <label for="imageName">Image Name:</label>
-          <input type="text" id="imageName" placeholder={imageName} bind:value={imageName} />
+          <input type="text" id="imageName" placeholder="Image name" bind:value={imageName} />
         </div>
         <div>
           <label for="imageURL">Image URL:</label>

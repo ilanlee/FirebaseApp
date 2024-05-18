@@ -47,5 +47,5 @@
     <label for="confirm-password">Confirm Password:</label>
     <input type="password" id="confirm-password" bind:value={confirmPassword} required />
   </div>
-  <button type="submit">Signup</button>
+  <button type="submit" class="italic">Signup</button>
 </form>

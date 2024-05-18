@@ -6,12 +6,7 @@
   import ImageUpload from "../lib/components/ImageUpload.svelte";
   import ImageForm from "../lib/components/ImageInformation.svelte";
   import { imageStore } from "$lib/stores/ImageUploadStore.js";
-    import NewArchive from "../lib/components/NewArchive.svelte";
-
-  let uploadedImages = [];
-    imageStore.subscribe((value) => {
-      uploadedImages = value;
-        });
+  import NewArchive from "../lib/components/NewArchive.svelte";
 
   let email = '';
   let password = '';

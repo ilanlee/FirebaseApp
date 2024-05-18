@@ -1,7 +1,7 @@
 <script> 
     export let imageName = '';
     export let imageURL = '';
-    let imageDescription = '';
+    export let imageDescription = '';
 </script>
   
 <form>

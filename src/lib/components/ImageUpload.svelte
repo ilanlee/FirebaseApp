@@ -7,6 +7,10 @@
     let files = [];
     let previewUrls = [];
     let uploadProgress = {};
+    let images = [];
+    imageStore.subscribe((value) => {
+        images = value;
+        });
   
     const handleFileChange = (e) => {
       files = e.target.files;
@@ -36,15 +40,16 @@
           async () => {
             // Upload completed successfully, get the download URL
             const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+            console.log("ImageUpload: An image downadURL:", downloadURL);
             imageStore.update((images) => [...images, { name: file.name, url: downloadURL }]);
             console.log("ImageUpload: imageStore:", imageStore);
           }
         );
       }
     };
-  </script>
-  
-  <div class="container mx-auto p-4">
+</script>
+
+<div class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">Image Upload</h1>
     <input type="file" multiple on:change={handleFileChange} class="mb-4" />
     {#if previewUrls.length > 0}
@@ -68,4 +73,17 @@
         </ul>
       </div>
     {/if}
-  </div>
+</div>
+{#if images.length > 0}
+  <ul>
+    {#each images as image}
+      <li>
+        <img src={image.url} alt={image.name} />
+        <p>{image.url}</p>
+        <p>{image.name}</p>
+      </li>
+    {/each}
+  </ul>
+{:else}
+  <p>No images uploaded yet.</p>
+{/if}

@@ -7,7 +7,7 @@
     let files = [];
     let previewUrls = [];
     let uploadProgress = {};
-    let images = [];
+    export let images = [];
     imageStore.subscribe((value) => {
         images = value;
         });
@@ -74,16 +74,3 @@
       </div>
     {/if}
 </div>
-{#if images.length > 0}
-  <ul>
-    {#each images as image}
-      <li>
-        <img src={image.url} alt={image.name} />
-        <p>{image.url}</p>
-        <p>{image.name}</p>
-      </li>
-    {/each}
-  </ul>
-{:else}
-  <p>No images uploaded yet.</p>
-{/if}

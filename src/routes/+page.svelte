@@ -14,7 +14,6 @@
 </script>
 
 {#if $user}
-  <p>Welcome, {$user.email}!</p>
   <ImageUpload />
     <div>
       <NewArchive/>

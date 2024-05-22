@@ -27,7 +27,7 @@
     </div>
 </form>
   
-  <style>
+<style>
     .image {
       width: 200px;
       overflow: hidden;
@@ -38,4 +38,4 @@
       height: auto;
       object-fit: cover;
     }
-  </style>
+</style>

@@ -30,6 +30,7 @@
   </script>
   
   <div>
+
     <ul>
       {#each uploadedImages as image}
         <ImageInformation 
@@ -40,4 +41,5 @@
       {/each}
     </ul>
     <button on:click={saveArchive}>Save Archive</button>
+ 
   </div>

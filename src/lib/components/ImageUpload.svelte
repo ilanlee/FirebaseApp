@@ -65,7 +65,7 @@
     Upload
   </button>
 
-  {#if Object.keys(uploadProgress).length > 0}
+  {#if Object.keys(uploadProgress).length > 0 && Object.values(uploadProgress).every(progress => progress<100)}
     <div class="mt-4">
       <h2 class="text-lg font-bold">Upload Progress</h2>
       <ul>

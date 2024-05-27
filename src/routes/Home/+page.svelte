@@ -7,6 +7,7 @@
     import ImageForm from "../../lib/components/ImageInformation.svelte";
     import { imageStore } from "$lib/stores/ImageUploadStore.js";
     import NewArchive from "../../lib/components/NewArchive.svelte";
+    import UserStoreInfo from "../../lib/components/UserStoreInfo.svelte";
   
     let email = '';
     let password = '';
@@ -26,3 +27,6 @@
     <h2 class="underline">Signup</h2>
     <SignupForm />
   {/if}
+<div class="float-right">
+  <UserStoreInfo />
+</div>

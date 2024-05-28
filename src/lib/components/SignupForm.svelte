@@ -3,6 +3,10 @@
   import { createUserWithEmailAndPassword } from 'firebase/auth';
   import { setDoc, doc } from 'firebase/firestore';
 
+  //flowbite
+  import { Label, Input, ButtonGroup } from 'flowbite-svelte';
+  import { EnvelopeSolid, LockSolid } from 'flowbite-svelte-icons';
+
   let email = "";
   let password = "";
   let confirmPassword = "";
@@ -36,16 +40,22 @@
 
 <form on:submit|preventDefault={handleSignup}>
   <div>
-    <label for="signup-email">Email:</label>
-    <input type="email" id="signup-email" bind:value={email} required autocomplete="username"/>
+    <Label for="signup-email" class="block mb-2">Email:</Label>
+    <Input type="email" id="signup-email" bind:value={email} required autocomplete="username" >
+      <EnvelopeSolid slot="left" class="w-4 h-4" />
+    </Input>
   </div>
   <div>
-    <label for="signup-password">Password:</label>
-    <input type="password" id="signup-password" bind:value={password} required autocomplete="current-password"/>
+    <Label for="signup-password">Password:</Label>
+    <Input type="password" id="signup-password" bind:value={password} required autocomplete="current-password">
+      <LockSolid slot="left" class="w-4 h-4" />
+    </Input>
   </div>
   <div>
-    <label for="confirm-password">Confirm Password:</label>
-    <input type="password" id="confirm-password" bind:value={confirmPassword} required />
+    <Label for="confirm-password">Confirm Password:</Label>
+    <Input type="password" id="confirm-password" bind:value={confirmPassword} required >
+      <LockSolid slot="left" class="w-4 h-4" />
+    </Input>
   </div>
   <button type="submit" class="italic">Signup</button>
 </form>

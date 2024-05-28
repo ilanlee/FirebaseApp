@@ -32,12 +32,13 @@
   <div>
 
     <ul>
-      {#each uploadedImages as image}
-        <ImageInformation 
-          imageName={image.name} 
-          imageURL={image.url} 
-          bind:imageDescription={image.description}
-        />
+      {#each uploadedImages as image, index}
+      <ImageInformation 
+      imageName={image.name} 
+      imageURL={image.url} 
+      imageDescription={image.description}
+      index={index} 
+      />
       {/each}
     </ul>
     <button on:click={saveArchive}>Save Archive</button>

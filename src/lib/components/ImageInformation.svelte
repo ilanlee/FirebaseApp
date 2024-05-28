@@ -1,41 +1,55 @@
-<script> 
-    export let imageName = '';
-    export let imageURL = '';
-    export let imageDescription = '';
+<script>
+  export let imageName = '';
+  export let imageURL = '';
+  export let imageDescription = '';
+  export let index = 0; // Receive the index from NewArchive.svelte
+
+  import { imageStore } from '$lib/stores/ImageUploadStore.js';
+
+  // Function to update the store with new values
+  function updateImage(newImageName, newDescription) {
+    imageStore.update((images) => {
+      images[index].name = newImageName;
+      images[index].description = newDescription;
+      return images;
+    });
+  }
 </script>
-  
+
 <form>
-    <div class="flex items-center">
-      <div class="image">
-        <img src={imageURL} alt={imageName} />
+  <div class="flex items-center">
+    <div class="image">
+      <img src={imageURL} alt={imageName} />
+    </div>
+
+    <div class="form-fields ml-4">
+      <div>
+        <label for="imageName">Image Name:</label>
+        <input type="text" id="imageName" placeholder="Image name" bind:value={imageName} 
+               on:change={(e) => updateImage(e.target.value, imageDescription)} />
       </div>
-  
-      <div class="form-fields ml-4">
-        <div>
-          <label for="imageName">Image Name:</label>
-          <input type="text" id="imageName" placeholder="Image name" bind:value={imageName} />
-        </div>
-        <div>
-          <label for="imageURL">Image URL:</label>
-          <input type="text" id="imageURL" bind:value={imageURL} disabled readonly />
-        </div>
-        <div>
-          <label for="imageDescription">Image Description:</label>
-          <textarea id="imageDescription" placeholder="Image description" bind:value={imageDescription} />
-        </div>
+      <div>
+        <label for="imageURL">Image URL:</label>
+        <input type="text" id="imageURL" bind:value={imageURL} disabled readonly />
+      </div>
+      <div>
+        <label for="imageDescription">Image Description:</label>
+        <textarea id="imageDescription" placeholder="Image description" bind:value={imageDescription} 
+                  on:change={(e) => updateImage(imageName, e.target.value)} />
       </div>
     </div>
+  </div>
 </form>
-  
+
 <style>
-    .image {
-      width: 200px;
-      overflow: hidden;
-    }
-  
-    .image img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
+  .image {
+    width: 200px;
+    overflow: hidden;
+  }
+
+  .image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 </style>

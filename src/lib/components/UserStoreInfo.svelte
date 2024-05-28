@@ -3,16 +3,17 @@
   
     let userEmail;
     let userId;
-  
-    $: {
-      if (user) {
-        userEmail = user.email;
-        userId = user.uid; // Assuming you have 'uid' available in the firebaseUser object
+
+    // Create a listener variable
+    const unsubscribe = user.subscribe((firebaseUser) => {
+      if (firebaseUser) {
+        userEmail = firebaseUser.email;
+        userId = firebaseUser.uid; // Assuming you have 'uid' available in the firebaseUser object
       } else {
         userEmail = 'Not Logged In';
         userId = '';
       }
-    }
+    });
   </script>
   
   <div>

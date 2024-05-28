@@ -3,7 +3,9 @@
   import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
   import { storage } from '$lib/firebase.js'; // Import storage from firebase.js
   import { imageStore } from '$lib/stores/ImageUploadStore.js';
+  import { user } from '$lib/stores/userStore.js'
 
+  let userId = ''; // Initialize userId variable
   let files = [];
   let previewUrls = [];
   let uploadProgress = {};
@@ -11,6 +13,15 @@
   imageStore.subscribe((value) => {
       images = value;
       });
+
+    // Create a listener variable
+    const unsubscribe = user.subscribe((firebaseUser) => {
+      if (firebaseUser) {
+        userId = firebaseUser.uid; // Assuming you have 'uid' available in the firebaseUser object
+      } else {
+        userId = 'noUserID';
+      }
+    });
 
   const handleFileChange = (e) => {
     files = e.target.files;
@@ -27,7 +38,7 @@
   const uploadImages = async () => {
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
-      const storageRef = ref(storage, `images/${file.name}`);
+      const storageRef = ref(storage, `usersUploads/${userId}/${file.name}`);
       const uploadTask = uploadBytesResumable(storageRef, file);
 
       uploadTask.on('state_changed', 

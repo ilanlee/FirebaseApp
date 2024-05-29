@@ -1,4 +1,6 @@
 <script>
+  import { Label, Input, Textarea, Img } from 'flowbite-svelte';
+
   export let imageName = '';
   export let imageURL = '';
   export let imageDescription = '';
@@ -16,25 +18,25 @@
   }
 </script>
 
-<form>
+<form class="m-2">
   <div class="flex items-center">
     <div class="image">
-      <img src={imageURL} alt={imageName} />
+      <Img src={imageURL} class="rounded-lg" alt={imageName} />
     </div>
 
     <div class="form-fields ml-4">
       <div>
-        <label for="imageName">Image Name:</label>
-        <input type="text" id="imageName" placeholder="Image name" bind:value={imageName} 
+        <Label for="imageName">Image Name:</Label>
+        <Input type="text" id="imageName" placeholder="Image name" bind:value={imageName} 
                on:change={(e) => updateImage(e.target.value, imageDescription)} />
       </div>
       <div>
-        <label for="imageURL">Image URL:</label>
-        <input type="text" id="imageURL" bind:value={imageURL} disabled readonly />
+        <Label for="imageURL">Image URL:</Label>
+        <Input type="text" id="imageURL" bind:value={imageURL} disabled readonly />
       </div>
       <div>
-        <label for="imageDescription">Image Description:</label>
-        <textarea id="imageDescription" placeholder="Image description" bind:value={imageDescription} 
+        <Label for="imageDescription">Image Description:</Label>
+        <Textarea id="imageDescription" placeholder="Image description" bind:value={imageDescription} 
                   on:change={(e) => updateImage(imageName, e.target.value)} />
       </div>
     </div>

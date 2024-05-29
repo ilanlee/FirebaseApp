@@ -2,6 +2,10 @@
   import { createEventDispatcher } from 'svelte'; // Import createEventDispatcher
   import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
+  //flowbite
+  import { Label, Input } from 'flowbite-svelte';
+  import { EnvelopeSolid, LockSolid } from 'flowbite-svelte-icons';
+
   export let email;
   export let password;
 
@@ -21,12 +25,16 @@
 
 <form on:submit|preventDefault={handleSubmit}>
   <div>
-    <label for="email">Email:</label>
-    <input type="email" id="login-email" bind:value={email} required autocomplete="username"/>
+    <Label for="email">Email:</Label>
+    <Input type="email" id="login-email" bind:value={email} required autocomplete="username">
+      <EnvelopeSolid slot="left" class="w-4 h-4" />
+    </Input>
   </div>
   <div>
-    <label for="password">Password:</label>
-    <input type="password" id="login-password" bind:value={password} required autocomplete="current-password"/>
+    <Label for="password">Password:</Label>
+    <Input type="password" id="login-password" bind:value={password} required autocomplete="current-password">
+      <LockSolid slot="left" class="w-4 h-4" />
+    </Input>
   </div>
   <button type="submit" class="italic">Login</button>
 

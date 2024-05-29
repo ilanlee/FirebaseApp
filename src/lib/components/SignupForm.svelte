@@ -4,7 +4,7 @@
   import { setDoc, doc } from 'firebase/firestore';
 
   //flowbite
-  import { Label, Input, ButtonGroup } from 'flowbite-svelte';
+  import { Label, Input } from 'flowbite-svelte';
   import { EnvelopeSolid, LockSolid } from 'flowbite-svelte-icons';
 
   let email = "";

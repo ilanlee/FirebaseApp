@@ -5,6 +5,8 @@
   import { imageStore } from '$lib/stores/ImageUploadStore.js';
   import { user } from '$lib/stores/userStore.js'
 
+  import { Input } from 'flowbite-svelte';
+
   let userId = ''; // Initialize userId variable
   let files = [];
   let previewUrls = [];

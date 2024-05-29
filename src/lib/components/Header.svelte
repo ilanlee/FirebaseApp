@@ -2,6 +2,7 @@
   import Logo from "./Logo.svelte";
   import { auth } from "$lib/firebase.js";
   import { signOut } from "firebase/auth"; 
+    import { ArchiveSolid, HomeSolid } from "flowbite-svelte-icons";
 
   async function logOut() {
     try {
@@ -17,6 +18,8 @@
 <header class="sticky bg-slate-50 top-0 left-0 flex items-center justify-between">
     <Logo/>
     <div class="flex gap-5 items-center">
+        <a href="/"><ArchiveSolid/></a>
+        <a href="/Home"><HomeSolid/></a>
         <button on:click={logOut} variant="ghost" class="button">Sign out</button>
     </div>
 </header>

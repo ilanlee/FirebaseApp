@@ -2,7 +2,7 @@
   import Logo from "./Logo.svelte";
   import { auth } from "$lib/firebase.js";
   import { signOut } from "firebase/auth"; 
-    import { ArchiveSolid, HomeSolid } from "flowbite-svelte-icons";
+  import { ArchiveSolid, HomeSolid } from "flowbite-svelte-icons";
 
   async function logOut() {
     try {

@@ -1,3 +1,5 @@
+import { browser } from "$app/environment";
+import { getAnalytics } from "firebase/analytics";
 import { initializeApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -10,7 +12,8 @@ const firebaseConfig = {
   projectId: import.meta.env.VITE_PROJECTID,
   storageBucket: import.meta.env.VITE_STORAGEBUCKET,
   messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
-  appId: import.meta.env.VITE_APPID,
+  appId: import.meta.env.VITE_MEASUREMENTID,
+
 };
 
 // Initialize Firebase only if no app exists
@@ -23,6 +26,9 @@ if (getApps().length === 0) {
   console.log("Firebase app already initialized:", app);
 }
 
+if (browser) {
+  getAnalytics(app);
+}
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);

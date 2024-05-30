@@ -44,6 +44,7 @@
 </form>
 
 <style>
+  /*
   .image {
     width: 200px;
     overflow: hidden;
@@ -54,4 +55,5 @@
     height: auto;
     object-fit: cover;
   }
+  */
 </style>

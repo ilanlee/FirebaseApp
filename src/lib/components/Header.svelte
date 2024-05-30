@@ -1,7 +1,8 @@
 <script>
   import Logo from "./Logo.svelte";
   import { auth } from "$lib/firebase.js";
-  import { signOut } from "firebase/auth"; 
+  import { browserLocalPersistence, signOut } from "firebase/auth"; 
+  import { page } from "$app/stores"
   import { ArchiveSolid, HomeSolid } from "flowbite-svelte-icons";
 
   async function logOut() {

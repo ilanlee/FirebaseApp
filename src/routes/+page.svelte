@@ -6,7 +6,9 @@
 
 <div class="flex h-screen">
   <div class="flex flex-col justify-center items-start w-1/3 pl-10"> <!--- Changed w-1/2 to w-1/3 -->
-    <LoginForm />
+    <Card>
+      <LoginForm />
+    </Card>
   </div>
 
   <div class="flex flex-col justify-center items-center w-2/3 bg-gray-100"> <!--- Changed w-1/2 to w-2/3 -->
@@ -25,7 +27,9 @@
     </p>
   </div>
   <div class="flex flex-col justify-center items-start w-1/3 pl-10"> <!--- Changed w-1/2 to w-1/3 -->
-    <SignupForm />
+    <Card>
+      <SignupForm />
+    </Card>
   </div>
 </div>
 

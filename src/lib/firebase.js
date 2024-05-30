@@ -26,9 +26,9 @@ if (getApps().length === 0) {
   console.log("Firebase app already initialized:", app);
 }
 
-if (browser) {
+/*if (browser) {
   getAnalytics(app);
-}
+}*/
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);

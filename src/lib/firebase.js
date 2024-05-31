@@ -5,6 +5,8 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
+
+
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_APIKEY,
   authDomain: import.meta.env.VITE_AUTHDOMAIN,
@@ -20,10 +22,10 @@ const firebaseConfig = {
 let app;
 if (getApps().length === 0) {
   app = initializeApp(firebaseConfig);
-  console.log("Firebase app initialized:", app); 
+  console.log("Firebase app initialized!"); 
 } else {
   app = getApps()[0]; // Get the existing app
-  console.log("Firebase app already initialized:", app);
+  console.log("Firebase app already initialized!!!");
 }
 
 /*if (browser) {

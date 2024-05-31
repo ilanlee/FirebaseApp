@@ -1,6 +1,7 @@
 <script>
   import { createEventDispatcher } from 'svelte'; // Import createEventDispatcher
   import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+  import { goto } from '$app/navigation';
 
   //flowbite
   import { Label, Input } from 'flowbite-svelte';
@@ -16,7 +17,7 @@
     try {
       const auth = getAuth();
       await signInWithEmailAndPassword(auth, email, password);
-      // Redirect to the desired page after successful login   
+      goto('/Home');
     } catch (err) {
       error = err.message;
     }

@@ -21,11 +21,7 @@
       </div>
     <LogoutButton />
   {:else}
-    <h2 class="underline">Login</h2>
-    <LoginForm /> 
-  
-    <h2 class="underline">Signup</h2>
-    <SignupForm />
+    <h2 class="grid justify-center">You are not logged in</h2>
   {/if}
 <div class="float-right">
   <UserStoreInfo />

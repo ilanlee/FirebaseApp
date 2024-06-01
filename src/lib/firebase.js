@@ -1,7 +1,5 @@
-import { browser } from "$app/environment";
-import { getAnalytics } from "firebase/analytics";
 import { initializeApp, getApps } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
@@ -28,9 +26,15 @@ if (getApps().length === 0) {
   console.log("Firebase app already initialized!!!");
 }
 
-/*if (browser) {
-  getAnalytics(app);
-}*/
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
+
+// Enable local persistence
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    console.log('Local persistence enabled!');
+  })
+  .catch((err) => {
+    console.error('Error setting persistence:', err);
+  });

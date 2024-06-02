@@ -5,5 +5,3 @@
 
 <Header/>
 <slot />
-
-  

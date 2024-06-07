@@ -1,7 +1,10 @@
 import Dexie from 'dexie';
 
-export const db = new Dexie('your_database_name');
-
+// Define your IndexedDB database schema
+const db = new Dexie('yourDatabaseName'); // Replace 'yourDatabaseName' with a suitable name
 db.version(1).stores({
-  user: 'id++, jwt, uid' // Define the 'user' table with 'id', 'jwt', and 'uid' columns
+  users: '++id, email, uid' // Define your user table
 });
+
+// Export the database instance
+export { db };

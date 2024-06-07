@@ -23,6 +23,7 @@
 	"dependencies": {
 		"@firebase/auth": "^1.7.3",
 		"@firebase/firestore": "^4.6.2",
+		"dexie": "^4.0.7",
 		"dotenv": "^16.4.5",
 		"firebase": "^10.12.0",
 		"firebase-admin": "^12.1.1",

@@ -1,17 +1,24 @@
 <script>
-    import { signOut } from "@firebase/auth";
-    import { auth } from '$lib/firebase.js'
-  
-    async function handleLogout() {
-      try {
-        await signOut(auth);
-        console.log("User signed out");
-        console.log("auth after signout:", auth)
-      } catch (error) {
-        console.error("Error during sign out:", error);
-        alert(error.message);
-      }
+  import { signOut } from "@firebase/auth";
+  import { auth } from '$lib/firebase.js';
+  import { db } from '$lib/db.js';
+  import { user } from '$lib/stores/userStore.js'; // Assuming you have a user store
+
+  async function handleLogout() {
+    try {
+      await signOut(auth);
+      console.log("User signed out");
+      console.log("auth after signout:", auth);
+      await db.currUser.clear();
+      console.log("User data cleared from IndexedDB");
+
+      // Update the user store
+      user.set(null);
+    } catch (error) {
+      console.error("Error during sign out:", error);
+      alert(error.message);
     }
-  </script>
-  
-  <button on:click={handleLogout}>Logout</button>
+  }
+</script>
+
+<button on:click={handleLogout}>Logout</button>

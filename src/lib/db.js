@@ -1,36 +1,28 @@
 import Dexie from 'dexie';
 
-// Function to check if IndexedDB is already open
-const isIndexedDBOpen = () => {
-  try {
-    // Attempt to access a property of a Dexie instance
-    // If this throws an error, the database is not open
-    new Dexie('yourDatabaseName').version; 
-    return true;
-  } catch (err) {
-    return false;
-  }
-};
+export const db = new Dexie('myAppDatabase');
+db.version(1).stores({
+  currUser: 'uid, email, displayName, photoURL' // Primary key and indexed props
+});
 
-// Define your IndexedDB database schema
-let db; 
+/*
+let db; // Initialize db as undefined
 
-// Initialize the database if not already open
-if (!isIndexedDBOpen()) {
-  db = new Dexie('yourDatabaseName'); // Replace 'yourDatabaseName' with a suitable name
+// Check if the code is running in the browser
+if (typeof window !== 'undefined') {
+  db = new Dexie('myAppDatabase');
   db.version(1).stores({
-    users: '++id, email, uid' // Define your user table
+    currUser: 'uid, email, displayName, photoURL'
   });
 
-  // Open the database connection
-  db.open().then(() => {
-    console.log('IndexedDB opened successfully!');
-  }).catch(err => {
-    console.error('Error opening IndexedDB:', err);
-  });
-} else {
-  console.log('IndexedDB is already running!');
+  // Use await to wait for the database to open
+  try {
+    await db.open();
+    console.log('IndexedDB opened successfully');
+  } catch (error) {
+    console.error('Error opening IndexedDB:', error);
+  }
 }
 
-// Export the database instance
-export { db };
+console.log('IndexedDB:', db);
+export { db };*/

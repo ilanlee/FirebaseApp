@@ -1,19 +1,10 @@
 <script>
   import Logo from "./Logo.svelte";
   import { auth } from "$lib/firebase.js";
-  import { browserLocalPersistence, signOut } from "firebase/auth"; 
+  import { browserLocalPersistence, signOut } from "firebase/auth";
   import { page } from "$app/stores"
   import { ArchiveSolid, HomeSolid } from "flowbite-svelte-icons";
-
-  async function logOut() {
-    try {
-        await signOut(auth);
-            window.location.href = '/';
-            console.log('User signed out!'); 
-        } catch (error) {
-            console.error("Error signing out:", error);
-    }
-  }
+  import LogoutButton from "$lib/components/LogoutButton.svelte";
 </script>
 
 <header class="sticky bg-slate-50 top-0 left-0 flex items-center justify-between">
@@ -21,6 +12,6 @@
     <div class="flex gap-5 items-center">
         <a href="/"><ArchiveSolid/></a>
         <a href="/Home"><HomeSolid/></a>
-        <button on:click={logOut} variant="ghost" class="button">Sign out</button>
+        <LogoutButton />
     </div>
 </header>

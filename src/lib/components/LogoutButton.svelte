@@ -8,7 +8,6 @@
     try {
       await signOut(auth);
       console.log("User signed out");
-      console.log("auth after signout:", auth);
       await db.currUser.clear();
       console.log("User data cleared from IndexedDB");
 

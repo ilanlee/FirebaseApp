@@ -13,6 +13,7 @@ onAuthStateChanged(auth, (firebaseUser) => {
     // Store user data in IndexedDB (using uid as the key)
     db.currUser.put({
       uid: firebaseUser.uid,
+      token: firebaseUser.accessToken,
       email: firebaseUser.email
     }, firebaseUser.uid) // Specify uid as the key
       .then(() => {

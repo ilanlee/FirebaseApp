@@ -2,7 +2,7 @@ import Dexie from 'dexie';
 
 export const db = new Dexie('myAppDatabase');
 db.version(1).stores({
-  currUser: 'uid, email, displayName, photoURL' // Primary key and indexed props
+  currUser: 'uid, token, email, displayName, photoURL' // Primary key and indexed props
 });
 
 /*
